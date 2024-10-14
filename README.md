@@ -5,6 +5,42 @@
 # 10월 2일 강의
 
 # 9월 25일 강의
+라우팅 시스템: 경로 매개변수를 사용해서 동적 페이지를 만들 수 있다.
+
+## 첫번째 벙법 - 서버에서 처리하기
+```javascript
+export function getServerSideProps({params}){
+  const {foo} = params
+  return {props: {foo}}
+  return { props: {post}}
+}
+
+// 단일 동적 경로 -pages/bar/[foo].jsx
+export default function FooPage(props) {
+  console.log(props)
+  return <h1>{props.foo}</h1>;
+}
+
+// 다중 동적 경로 - pages/bar/[...foo].jsx
+  export default function FooPage(props) {
+    return <h1>{props.foo.join("&")}</h1>;
+  }
+
+// 선택적 다중 동적 경로 (경로에 slug가 없어도 매핑된다)
+export function getServerSideProps({params}){
+  //const {foo} = params
+  const foo = params.foo ? params.foo : ''
+  return {props: {foo}}
+}
+
+// pages/bar/[[...foo]].jsx
+export default function FooPage(props) {
+  console.log(props)
+  return <h1>{props.foo ? props.foo.join('&') : 'Home'}</h1>;
+}
+
+주의할 점: [...foo], [[...foo]] 중 하나만 만들어야 함
+```
 
 
 # 9월 18일 강의
