@@ -41,7 +41,25 @@ export default function FooPage(props) {
 
 주의할 점: [...foo], [[...foo]] 중 하나만 만들어야 함
 ```
+## 두번째 방법 - 클라이언트에서 처리하기(?)
+```javascript
+import { useRouter } from "next/router";
 
+export default function Greet() {
+  //localhost:3000/greet/mitch?learning_nextjs=true slug말고 url 파라미터도 가능
+  const { query } = useRouter();
+  console.log(query);
+  return <h1>Hello {query.name}!</h1>;
+}
+```
+### router.push 메서드
+Link 컴포넌트와는 다르게 연결된 페이지를 미리 불러오지는 못하기 때문에
+이벤트가 발생한 경우 클라이언트를 특정 페이지로 보낼 때 쓰는 건 좋지만
+클라이언트 내비게이션에 쓰는 건 좋지 않다
+
+### 자동 이미지 최적화 기능
+CLS현상(이미지를 불러오면 영역이 밀려나는 현상)을 Next.js는 내장 Image 컴포넌트를 사용해서 해결한다.  
+그리고 webP형식으로 이미지를 제공한다. WebP는 손실/비손실 압축 이미지 파일을 위한 이미지 포맷이다.  
 
 # 9월 18일 강의
 추석 휴강
