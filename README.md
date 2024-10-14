@@ -5,7 +5,7 @@
 # 10월 2일 강의
 라우팅 시스템: 경로 매개변수를 사용해서 동적 페이지를 만들 수 있다.
 
-## 첫번째 벙법 - 서버에서 처리하기
+## 첫번째 방법 - 서버에서 처리하기
 ```javascript
 export function getServerSideProps({params}){
   const {foo} = params
@@ -56,6 +56,16 @@ CLS현상(이미지를 불러오면 영역이 밀려나는 현상)을 Next.js는
 [동적 라우팅 방법]  
 페이지 라우팅은 [slugName].js 파일, 앱 라우팅은 slug 디렉토리가 필요하다.  
 
+```javascript
+// app/foo/[fooId]/page.jsx
+export default function fooId(props) {
+    return (
+      <h1>
+        foo {props.params.fooId} / {props.searchParams.country}
+      </h1>
+    );
+  }
+```
 
 # 9월 18일 강의
 추석 휴강
