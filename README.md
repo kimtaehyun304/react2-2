@@ -3,8 +3,6 @@
 # 10월 4일 강의
 
 # 10월 2일 강의
-
-# 9월 25일 강의
 라우팅 시스템: 경로 매개변수를 사용해서 동적 페이지를 만들 수 있다.
 
 ## 첫번째 벙법 - 서버에서 처리하기
@@ -12,27 +10,20 @@
 export function getServerSideProps({params}){
   const {foo} = params
   return {props: {foo}}
-  return { props: {post}}
 }
 
-// 단일 동적 경로 -pages/bar/[foo].jsx
+// 1) 단일 동적 경로 -pages/bar/[foo].jsx
 export default function FooPage(props) {
   console.log(props)
   return <h1>{props.foo}</h1>;
 }
 
-// 다중 동적 경로 - pages/bar/[...foo].jsx
+// 2) 다중 동적 경로 - pages/bar/[...foo].jsx
   export default function FooPage(props) {
     return <h1>{props.foo.join("&")}</h1>;
   }
 
-// 선택적 다중 동적 경로 (경로에 slug가 없어도 매핑된다)
-export function getServerSideProps({params}){
-  //const {foo} = params
-  const foo = params.foo ? params.foo : ''
-  return {props: {foo}}
-}
-
+// 3) 선택적 다중 동적 경로 (경로에 slug가 없어도 매핑된다)
 // pages/bar/[[...foo]].jsx
 export default function FooPage(props) {
   console.log(props)
@@ -60,6 +51,11 @@ Link 컴포넌트와는 다르게 연결된 페이지를 미리 불러오지는 
 ### 자동 이미지 최적화 기능
 CLS현상(이미지를 불러오면 영역이 밀려나는 현상)을 Next.js는 내장 Image 컴포넌트를 사용해서 해결한다.  
 그리고 webP형식으로 이미지를 제공한다. WebP는 손실/비손실 압축 이미지 파일을 위한 이미지 포맷이다.  
+
+# 9월 25일 강의
+[동적 라우팅 방법]  
+페이지 라우팅은 [slugName].js 파일, 앱 라우팅은 slug 디렉토리가 필요하다.  
+
 
 # 9월 18일 강의
 추석 휴강
