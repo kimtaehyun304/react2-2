@@ -5,7 +5,6 @@ UI 프레임워크
 
 chakra UI  
 -> 버튼, Modal, 입력 등 다양한 내장 컴포넌트 제공  
--> dark mode, light mode 지원  
 -> 타입스크립트로 만들어짐  
 -> 리액트에서만 쓸 수 있음  
 
