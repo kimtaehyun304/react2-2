@@ -1,5 +1,19 @@
 # 202030411 김태현
 
+# 10월 25일 강의
+서버는 두가지 상황에서 데이터를 불러온다.  
+-> 빌드 시점에 정적 페이지 생성 / getStaticProps  
+-> 앱 실행 도중 데이터 호출 / getServerSideProps  
+*getStaticProps는 서버에서 가져오지만 변하지 않는다. 
+
+Node.js는 fetch api를 제공하지 않는다. 다른 라이브러리 소개 ↓
+
+1. HTTP 클라이언트 라이브러리  
+클라이언트 및 서버에서 동일한 API를 쓸 수 있는 Axios가 유명하다.   
+
+2. Node.js 내장 HTTP 라이브러리  
+별도의 의존성 설치 없이 쓸 수 있지만 Axios 보다 설정할 작업이 많다.  
+
 # 10월 23일 강의
 누적 레이아웃 이동(Cumulative Layout Shift)  
 -> 이미지를 불러오면 영역이 밀려나는 현상  
@@ -15,9 +29,6 @@ Next.js는 기본으로 실행되고 있는 서버에서 자동 이미지 최적
 
 디렉터리 구조 구성 (컴포넌트 구성)  
 아토믹 디자인 원칙에 따르면 컴포넌트는 atoms, molecules, organisms, templates으로 나눈다.  
-
-
-
 
 # 10월 4일 강의
 _app.js와 _document.js 페이지 커스터 마이징 (프로젝트 레이아웃)  
