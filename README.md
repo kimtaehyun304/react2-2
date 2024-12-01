@@ -63,7 +63,7 @@ SCSS / SASS
 -> SASS는 표준 CSS 문법을 안 지원함.  
 
 ```css
-
+// styles/Home.module.sass
 .button-default{
     padding: 5px;
     border: none;
