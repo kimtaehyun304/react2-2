@@ -5,7 +5,8 @@ CSS와 내장 스타일링 메서드
 
 ★결론  
 현재는 CSS Moudle과 PostCSS가 가장 좋은 방법이라고 한다.  
-빌드 결과를 예측하기 쉽고, 특히 PostCSS는 최신 기능을 옛날 브라우저에서 쓸 수 있게 바꿔주기 때문이다.  
+빌드 결과를 예측하기 쉽다. (SASS 경우 반복문을 지원하기 때문에 예측이 어려움)  
+특히 PostCSS는 최신 기능을 옛날 브라우저에서 쓸 수 있게 바꿔주기 때문이다.  
 
 Styled JSX  
 ->  내장 모듈이기 때문에 설치가 필요없음  
@@ -27,7 +28,7 @@ Styled JSX
 서버가 미리 CSS 규칙을 생성해놓아도 하이드레이션 끝나면 CSS 규칙을 다시 만들어서 느림  
 
 CSS Module  
-Styled JSX  성능을 개선한 Next.js 버전 외부 스타일 시트다.  
+-> Styled JSX  성능을 개선한 Next.js 버전 외부 스타일 시트다.  
 ```css
 // styles/Home.module.css
 .homepage {
@@ -43,9 +44,67 @@ Styled JSX  성능을 개선한 Next.js 버전 외부 스타일 시트다.
   color: #f5f5f5;
 }
 
+//pages/index.js
+import styles from '../styles/Home.module.css';
+
+export default function Home() {
+  return (
+    <div className={styles.homepage}>
+      <h1 className={styles.title}> Welcome to the CSS Modules example </h1>
+    </div>
+  );
+}
+
 ```
 
+SCSS / SASS 
+-> CSS Module에서 사용하는 CSS 문법  
+-> 코드를 더 모듈화할 수 있다.  
+-> SASS는 표준 CSS 문법을 안 지원함.  
 
+```css
+
+.button-default{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: grey;
+    color: black;
+}
+
+/*교재는 button-success라고 돼있는데 안됨*/
+.buttonSuccess{
+    /*button-default 상속*/
+    @extend .button-default;
+    background-color: green;
+    color: white;
+}
+
+/* 중첩 셀렉터 기능으로 상속 가능
+.button {
+    padding: 5px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    &.success{
+        background-color: green;
+        color: white;
+    }
+
+    &.danger{
+        background-color: red;
+        color: white;
+    }
+}
+
+export default function Home() {
+  return (
+        <button className={styles.buttonSuccess}>글로벌 css 버튼</button>
+  );
+}
+```
 
 
 
