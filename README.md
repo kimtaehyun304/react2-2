@@ -7,7 +7,45 @@ CSS와 내장 스타일링 메서드
 현재는 CSS Moudle과 PostCSS가 가장 좋은 방법이라고 한다.  
 빌드 결과를 예측하기 쉽고, 특히 PostCSS는 최신 기능을 옛날 브라우저에서 쓸 수 있게 바꿔주기 때문이다.  
 
-↓근거
+Styled JSX  
+->  내장 모듈이기 때문에 설치가 필요없음  
+-> CSS 속성 지정을 위해 자바스크립트를 사용할 수 있는 라이브러리임  
+
+```javascript
+      <button className="button">{props.children}</button>
+      <style jsx>{`
+        .button {
+          padding: 1em;
+          border-radius: 1em;
+          border: none;
+          background: green;
+          color: white;
+        }
+      `}</style>
+```
+코드가 CSS 의존성이 커지기 때문에 앱 번들도 커지고 느려짐  
+서버가 미리 CSS 규칙을 생성해놓아도 하이드레이션 끝나면 CSS 규칙을 다시 만들어서 느림  
+
+CSS Module  
+Styled JSX  성능을 개선한 Next.js 버전 외부 스타일 시트다.  
+```css
+// styles/Home.module.css
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #2196f3;
+}
+
+.title {
+  color: #f5f5f5;
+}
+
+```
+
+
 
 
 
