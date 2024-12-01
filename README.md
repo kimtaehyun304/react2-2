@@ -1,5 +1,29 @@
 # 202030411 김태현
 
+# 11월 6일 강의
+UI 프레임워크  
+
+chakra UI  
+-> 버튼, Modal, 입력 등 다양한 내장 컴포넌트 제공  
+-> dark mode, light mode 지원  
+-> 타입스크립트로 만들어짐
+
+chakra extendTheme는 chakra 2.10.4 까지만 지원됨  
+-> npm i @chakra-ui/react하면 최신버전인 3이 설치되니 주의
+
+TailwindCSS  
+-> CSS 규칙만을 제공  
+-> 즉 JS 컴포넌트를 제공하지 않기 때문에 필요한 경우 직접 만들어야함  
+-> ex) chakra UI는 테마 변경 함수를 제공하나 TailwindCSS는 직접 만들어야함  
+
+
+
+
+
+
+TailwindCSS  
+
+
 # 10월 30일 강의
 CSS와 내장 스타일링 메서드  
 
