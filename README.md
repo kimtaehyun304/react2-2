@@ -75,7 +75,7 @@ CSS와 내장 스타일링 메서드
 특히 PostCSS는 최신 기능을 옛날 브라우저에서 쓸 수 있게 바꿔주기 때문이다.  
 
 Styled JSX  
-->  내장 모듈이기 때문에 설치가 필요없음  
+-> 내장 모듈이기 때문에 설치가 필요없음  
 -> CSS 속성 지정을 위해 자바스크립트를 사용할 수 있는 라이브러리임  
 
 ```javascript
@@ -123,7 +123,7 @@ export default function Home() {
 
 ```
 
-SCSS / SASS 
+SCSS / SASS  
 -> CSS Module에서 사용하는 CSS 문법  
 -> 코드를 더 모듈화할 수 있다.  
 -> SASS는 표준 CSS 문법을 안 지원함.  
@@ -189,7 +189,7 @@ Node.js는 fetch api를 제공하지 않는다. 다른 라이브러리 소개 �
 2. Node.js 내장 HTTP 라이브러리  
 별도의 의존성 설치 없이 쓸 수 있지만 Axios 보다 설정할 작업이 많다.  
 
-프라이빗 API 호출을 위한 토큰은 ENV에 보관하자  
+프라이빗 API 호출을 위한 토큰은 .env에 보관하자  
 
 # 10월 23일 강의
 누적 레이아웃 이동(Cumulative Layout Shift)  
