@@ -11,19 +11,55 @@ chakra UI
 chakra extendTheme는 chakra 2.10.4 까지만 지원됨  
 -> npm i @chakra-ui/react하면 최신버전인 3이 설치되니 주의
 
+```javascript
+//chakra는 디자인 컴포넌트 제공
+import { Box, Grid, Text, GridItem } from '@chakra-ui/react';
+import UserCard from '../components/UserCard';
+import users from '../data/users';
+
+export default function Home() {
+  return (
+    <Box>
+      <Text fontSize="xxx-large" fontWeight="extrabold" textAlign="center" marginTop="9">
+        ACME Corporation Employees
+      </Text>
+      <Grid
+        gridTemplateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(3, 1fr)']}
+        gridGap="10"
+        padding="10">
+        {users.map((user) => (
+          <GridItem key={user.id}>
+            <UserCard {...user} />
+          </GridItem>
+        ))}
+      </Grid>
+    </Box>
+  );
+}
+```
+
 TailwindCSS  
 -> CSS 규칙만을 제공  
 -> 즉 JS 컴포넌트를 제공하지 않기 때문에 필요한 경우 직접 만들어야함  
--> ex) chakra UI는 테마 변경 함수를 제공하나 TailwindCSS는 직접 만들어야함  
+-> ex) chakra UI는 테마 변경 함수를 제공하나 TailwindCSS는 직접 만들어야함. 대신 CSS 접두사 dark: 사용 가능  
 
-
-
-
-
-
-TailwindCSS  
-
-
+```javascript
+// bootStrap처럼 classNames로 디자인함 
+export default function Home() {
+  return (
+    <div className="sm:w-9/12 sm:m-auto pt-16 pb-16">
+      <h1 className="dark:text-white text-5xl font-bold text-center">ACME Corporation Employees</h1>
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-3 mt-14 ml-8 mr-8 sm:mr-0 sm:ml-0">
+        {users.map((user) => (
+          <div key={user.id}>
+            <UserCard {...user} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
 # 10월 30일 강의
 CSS와 내장 스타일링 메서드  
 
