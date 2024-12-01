@@ -6,7 +6,7 @@ UI 프레임워크
 chakra UI  
 -> 버튼, Modal, 입력 등 다양한 내장 컴포넌트 제공  
 -> 타입스크립트로 만들어짐  
--> 리액트에서만 쓸 수 있음  
+-> 리액트와 next.js에서만 쓸 수 있음  
 
 chakra extendTheme는 chakra 2.10.4 까지만 지원됨  
 -> npm i @chakra-ui/react하면 최신버전인 3이 설치되니 주의
