@@ -1,5 +1,89 @@
 # 202030411 김태현
 
+# 11월 20일 강의
+
+
+# 11월 13일 강의
+지역 및 전역 상태 관리  
+
+리액트 상태관리에 있어 어려운 점은 데이터 흐름이 단방향이라는 것이다.  
+즉, 자식 컴포넌트는 부모에게 상태를 전달할 수 없다.  
+-> 전역 상태 관리 툴로 해결  
+
+지역 상태 관리 -> useState  
+전역 상태 관리 -> 콘텍스트 API, Redux (Props Drilling 문제가 없음)  
+
+```javascript
+// cartContext.js
+import { createContext } from 'react';
+
+// 컨텍스트 생성
+const ShoppingCartContext = createContext({
+  items: {},
+  setItems: () => null,
+});
+
+export default ShoppingCartContext;
+
+import { useState } from 'react';
+import Head from 'next/head';
+import CartContext from '../components/context/cartContext';
+import Navbar from '../components/Navbar';
+
+// app.js
+function MyApp({ Component, pageProps }) {
+  const [items, setItems] = useState({});
+
+  return (
+    <>
+      <Head>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+      </Head>
+       // 컨텍스트 할당
+      <CartContext.Provider value={{ items, setItems }}>
+        <Navbar />
+        <div className="w-9/12 m-auto pt-10">
+          <Component {...pageProps} />
+        </div>
+      </CartContext.Provider>
+    </>
+  );
+}
+
+export default MyApp;
+
+// Navbar.js
+import { useContext } from 'react';
+import Link from 'next/link';
+import cartContext from '../components/context/cartContext';
+
+function Navbar() {
+  // 컨텍스트 사용
+  const { items } = useContext(cartContext);
+  const totalItemsAmount = Object.values(items).reduce((x, y) => x + y, 0);
+
+  return (
+    <div className="w-full bg-purple-600 p-4 text-white">
+      <div className="w-9/12 m-auto flex justify-between">
+        <div className="font-bold">
+          <Link href="/" passHref>
+            My e-commerce
+          </Link>
+        </div>
+        <div className="font-bold underline">
+          <Link href="/cart" passHref>
+            {totalItemsAmount} items in cart
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;
+
+```
+
 # 11월 6일 강의
 UI 프레임워크  
 
