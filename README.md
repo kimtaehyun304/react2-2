@@ -4,7 +4,7 @@
 Next.js 프로젝트 배포하기  
 
 # 11월 20일 강의
-use client
+use client  
 -> Next.js 13에서 도입된 새로운 지시어로, 컴포넌트가 클라이언트 사이드에서만 렌더링된다는 것을 명시  
 
 Redux  
