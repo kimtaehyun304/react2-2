@@ -154,9 +154,6 @@ export default function Home() {
 Headless UI  
 -> Headless UI는 동적 컴포넌트만 제공함
 
-
-
-
 # 10월 30일 강의
 CSS와 내장 스타일링 메서드  
 
@@ -263,9 +260,6 @@ export default function Home() {
 }
 ```
 
-
-
-
 # 10월 25일 강의
 서버는 두가지 상황에서 데이터를 불러온다.  
 -> 빌드 시점에 정적 페이지 생성 / getStaticProps  
@@ -287,7 +281,7 @@ Node.js는 fetch api를 제공하지 않는다. 다른 라이브러리 소개 �
 -> 이미지를 불러오면 영역이 밀려나는 현상  
 -> Next.js는 CLS현상을 내장 Image 컴포넌트를 사용해서 해결한다.  
 
-Image 컴포넌트 기능 
+Image 컴포넌트 기능  
 -> 이미지 로드 시점을 필요할 때까지 지연시킴  
 -> 이미지 사이즈 최적화로 사이즈를 1/10이하로 줄여줌  
 
@@ -299,20 +293,30 @@ Next.js는 기본으로 실행되고 있는 서버에서 자동 이미지 최적
 아토믹 디자인 원칙에 따르면 컴포넌트는 atoms, molecules, organisms, templates으로 나눈다.  
 
 # 10월 4일 강의
-_app.js와 _document.js 페이지 커스터 마이징 (프로젝트 레이아웃)  
+Page Project Layout  
+_app.js & _document.js  
 
-_app.js: 각 페이지마다 별도의 컴포넌트를 불러오지 않고 모든 페이지에서 같은 내비게이션 바를 사용할 수 있다. (전역 스타일)  
+_app.js  
+-> 각 페이지마다 별도의 컴포넌트를 불러오지 않고 모든 페이지에서 같은 내비게이션 바를 사용할 수 있다. (전역 스타일)  
+_document.js  
+-> head html body 같은 기본적인 태그를 커스텀할땐 재정의하지 않고 상속받아서 커스텀한다.  
 
-_document.js: head html body 같은 기본적인 태그를 커스텀할땐 재정의하지 않고 상속받아서 커스텀한다.  
-Main 태그: Main 태그 외부의 컴포넌트는 브라우저에서 초기화되지 않는다.  
-페이지 간에 공통으로 사용되는 컴포넌트가 있다면 반드시 _app.js 파일에서 컴포넌트를 써야한다.  
+Main 태그  
+-> Main 태그 외부의 컴포넌트는 브라우저에서 초기화되지 않는다.  
+-> 페이지 간에 공통으로 사용되는 컴포넌트가 있다면 반드시 _app.js 파일에서 컴포넌트를 써야한다.  
 
-NextScript 태그: 하이드레이션과 같은 작업을 처리할 수 있는 커스텀 스크립트가 위치한 곳이다. 
+NextScript 태그  
+-> 하이드레이션과 같은 작업을 처리할 수 있는 커스텀 스크립트가 위치한 곳이다. 
 
 주의!  
 _app.js와 _document.js는 파일을 커스터마이징 할 땐 getServerSideProps 또는 getStaticProps 함수를 쓸 수 없다.  
 모든 페이지를 렌더링할 때마다 서버에서 특정 데이터를 불러와야 한다면 getInitalProps 함수를 써야한다.  
 
+App Project Layout  
+-> Linkcomponent  
+-> layout.jsx는 app 디렉토리 아래에 위치함  
+-> layout.jsx는 Page Project에서 사용하던 _app.jsx와 _document.jsx를 대체함  
+-> 이 파일은 삭제해도 프로젝트를 실행하면 자동으로 다시 생겨남  
 
 # 10월 2일 강의
 라우팅 시스템: 경로 매개변수를 사용해서 동적 페이지를 만들 수 있다.
