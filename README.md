@@ -18,7 +18,8 @@ Redux
 -> 전역 상태 관리 툴로 해결  
 
 지역 상태 관리 -> useState  
-전역 상태 관리 -> 콘텍스트 API, Redux (Props Drilling 문제가 없음)  
+전역 상태 관리 -> 콘텍스트 API, Redux  
+-> 이들은 Props Drilling 문제가 없음  
 
 ```javascript
 // cartContext.js
