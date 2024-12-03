@@ -130,7 +130,7 @@ export default function Home() {
 ```
 
 TailwindCSS  
--> CSS 규칙만을 제공  
+-> CSS 규칙만을 제공 (CSS 접두사 지원해서 나름 JS 느낌이 있음)  
 -> 즉 JS 컴포넌트를 제공하지 않기 때문에 필요한 경우 직접 만들어야함  
 -> ex) chakra UI는 테마 변경 함수를 제공하나 TailwindCSS는 직접 만들어야함. 대신 CSS 접두사 dark: 사용 가능  
 
