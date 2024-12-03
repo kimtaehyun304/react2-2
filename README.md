@@ -9,6 +9,9 @@ use client
 
 Redux  
 -> 규모가 큰 애플리케이션에서 씀  
+-> state 생성: createStore(reducer, preloadedState, composeWithDevTools(applyMiddleware()));  
+-> reducer: 상태(state)를 업데이트하는 함수로, 이전 상태와 액션(action)을 입력받아 새로운 상태를 반환  
+-> dispatch: reducer 호출 함수 (useReducer)  
 
 # 11월 13일 강의
 지역 및 전역 상태 관리  
